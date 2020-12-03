@@ -14,7 +14,7 @@
 #### 需手动安装的库
 
 * `mysqlclient`
-* `axio` 
+* `axios` 
 * `bootstrapvue`
 
 #### 参考资料
