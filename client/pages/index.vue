@@ -1,10 +1,10 @@
 <template>
     <header>
         <div class="text-box">
-            <h1>吃货天堂 😋</h1>
+            <h1>欢乐食光 😋</h1>
             <p class="mt-3">制作我们喜爱的美食 ❤️ ️</p>
-            <nuxt-link class="btn btn-outline btn-large btn-info" to="/recipes">
-                查看食谱
+            <nuxt-link class="btn btn-outline btn-large btn-info" to="/main">
+                进入首页 
                 <span class="ml-2">&rarr;</span>
             </nuxt-link>
         </div>
@@ -14,7 +14,7 @@
 <script>
 export default {
     head() {
-        return { title: "首页" };
+        return { title: "美味食光 - 起始页" };
     }
 };
 </script>

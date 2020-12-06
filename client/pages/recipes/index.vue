@@ -1,30 +1,35 @@
 <template>
-    <main class="container mt-5">
-        <div class="row">
-            <div class="col-12 text-right mb-4">
-                <div class="d-flex justify-content-between">
-                    <h3>吃货天堂</h3>
-                    <nuxt-link to="/recipes/add" class="btn btn-info">添加食谱</nuxt-link>
+    <div>
+        <navbar />
+        <main class="container mt-5">
+            <div class="row">
+                <div class="col-12 text-right mb-4">
+                    <div class="d-flex justify-content-between">
+                        <h3>吃货天堂</h3>
+                        <nuxt-link to="/recipes/add" class="btn btn-info">添加食谱</nuxt-link>
+                    </div>
                 </div>
+                <template v-for="recipe in recipes">
+                    <div :key="recipe.id" class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <recipe-card :onDelete="deleteRecipe" :recipe="recipe"></recipe-card>
+                    </div>
+                </template>
             </div>
-            <template v-for="recipe in recipes">
-                <div :key="recipe.id" class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                    <recipe-card :onDelete="deleteRecipe" :recipe="recipe"></recipe-card>
-                </div>
-            </template>
-        </div>
-    </main>
+        </main>
+        <myFooter />
+    </div>
 </template>
   
 <script>
 import RecipeCard from "~/components/RecipeCard.vue";
-
+import myFooter from "~/components/myFooter.vue";
+import navBar from "~/components/navbar.vue";
 
 export default {
     head() {
         return { title: "食谱列表" };
     },
-    components: { RecipeCard },
+    components: { RecipeCard, navBar, myFooter },
 
     async asyncData({ $axios, params }) {
         try {

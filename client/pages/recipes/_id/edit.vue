@@ -1,63 +1,75 @@
 <template>
-    <main class="container my-5">
-        <div class="row">
-            <div class="col-12 text-center my-3">
-                <h2 class="mb-3 display-4 text-uppercase">{{ recipe.name }}</h2>
-            </div>
-            <div class="col-md-6 mb-4">
-                <img v-if="!preview" class="img-fluid" style="width: 400px; border-radius: 10px; box-shadow: 0 1rem 1rem rgba(0,0,0,.7);"  :src="recipe.picture">
-                <img v-else class="img-fluid" style="width: 400px; border-radius: 10px; box-shadow: 0 1rem 1rem rgba(0,0,0,.7);"  :src="preview">
-            </div>
-            <div class="col-md-4">
-                <form @submit.prevent="submitRecipe">
-                    <div class="form-group">
-                        <label for>Recipe Name</label>
-                        <input type="text" class="form-control" v-model="recipe.name" >
-                    </div>
-                    <div class="form-group">
-                        <label for>Ingredients</label>
-                        <input type="text" v-model="recipe.ingredients" class="form-control" name="Ingredients" >
-                    </div>
-                    <div class="form-group">
-                        <label for>Food picture</label>
-                        <input type="file" @change="onFileChange">
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for>Difficulty</label>
-                                <select v-model="recipe.difficulty" class="form-control" >
-                                    <option value="Easy">Easy</option>
-                                    <option value="Medium">Medium</option>
-                                    <option value="Hard">Hard</option>
-                                </select>
+    <div>
+        <navBar />
+        <main class="container my-5">
+            <div class="row">
+                <div class="col-12 text-center my-3">
+                    <h2 class="mb-3 display-4 text-uppercase">{{ recipe.name }}</h2>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <img v-if="!preview" class="img-fluid" style="width: 400px; border-radius: 10px; box-shadow: 0 1rem 1rem rgba(0,0,0,.7);"  :src="recipe.picture">
+                    <img v-else class="img-fluid" style="width: 400px; border-radius: 10px; box-shadow: 0 1rem 1rem rgba(0,0,0,.7);"  :src="preview">
+                </div>
+                <div class="col-md-4">
+                    <form @submit.prevent="submitRecipe">
+                        <div class="form-group">
+                            <label for>Recipe Name</label>
+                            <input type="text" class="form-control" v-model="recipe.name" >
+                        </div>
+                        <div class="form-group">
+                            <label for>Ingredients</label>
+                            <input type="text" v-model="recipe.ingredients" class="form-control" name="Ingredients" >
+                        </div>
+                        <div class="form-group">
+                            <label for>Food picture</label>
+                            <input type="file" @change="onFileChange">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for>Difficulty</label>
+                                    <select v-model="recipe.difficulty" class="form-control" >
+                                        <option value="Easy">Easy</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="Hard">Hard</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for>
+                                        Prep time
+                                        <small>(minutes)</small>
+                                    </label>
+                                    <input type="text" v-model="recipe.prep_time" class="form-control" name="Ingredients" >
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for>
-                                    Prep time
-                                    <small>(minutes)</small>
-                                </label>
-                                <input type="text" v-model="recipe.prep_time" class="form-control" name="Ingredients" >
-                            </div>
+                        <div class="form-group mb-3">
+                            <label for>Preparation guide</label>
+                            <textarea v-model="recipe.prep_guide" class="form-control" rows="8"></textarea>
                         </div>
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for>Preparation guide</label>
-                        <textarea v-model="recipe.prep_guide" class="form-control" rows="8"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-success">Save</button>
-                </form>
+                        <button type="submit" class="btn btn-success">Save</button>
+                    </form>
+                </div>
             </div>
-        </div>
-    </main>
+        </main>
+        <myFooter />
+    </div>
 </template>
   
 <script>
+import navBar from "~/components/navbar.vue"
+import myFooter from "~/components/myFooter.vue";
+
+
 export default {
     head(){
         return { title: "编辑食谱" }
+    },
+    components: {
+        navBar,
+        myFooter,
     },
     async asyncData({ $axios, params }) {
         try {
