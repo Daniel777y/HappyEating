@@ -1,5 +1,5 @@
 <template>
-    <div class="navBar">
+    <div class="navBar fixed-top">
         <b-navbar toggleable="lg" type="dark" variant="info">
             <b-navbar-brand to='/'> 欢乐食光 </b-navbar-brand>
             <!-- nav toggle -->

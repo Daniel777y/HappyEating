@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed-bottom">
+    <div id="myFooter" class="fixed-bottom">
         <b-navbar toggleable="lg" type="dark" variant="info">
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav small="true" class="ml-auto">
