@@ -33,12 +33,11 @@
 </template>
   
 <script>
-import navbar from '~/components/navbar.vue';
+import navBar from '~/components/navbar.vue';
 import myFooter from "~/components/myFooter.vue";
 
 
 export default {
-  components: { navbar, myFooter },
     head() {
         return { title: "食谱详情" };
     },

@@ -11,7 +11,8 @@
 <script>
 
 import navBar from "~/components/navbar.vue";
-import myFooter from "~/components/myFooter.vue";
+import myFooter from "~/components/myFooter";
+import MyFooter from '../components/myFooter.vue';
 
 export default {
     head() {
@@ -19,7 +20,7 @@ export default {
     },
     components: {
         navBar,
-        myFooter,
+        myFooter
     },
 };
 </script>
