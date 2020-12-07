@@ -27,7 +27,7 @@ import navBar from "~/components/navbar.vue";
 
 export default {
     head() {
-        return { title: "食谱列表" };
+        return { title: "食谱列表 - 欢乐食光" };
     },
     components: { RecipeCard, navBar, myFooter },
 

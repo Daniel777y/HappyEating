@@ -31,5 +31,6 @@ export default {
 .recipe-card {
   border: none;
   box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
 }
 </style>

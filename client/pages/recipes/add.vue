@@ -120,6 +120,7 @@ export default {
                 let response = await this.$axios.$post("/recipes/", formData, config);
                 this.$router.push("/recipes/");
             } catch (e) {
+                console.log(e.response);
                 console.log(e);
             }
         }
