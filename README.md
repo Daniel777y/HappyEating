@@ -15,7 +15,7 @@
 
 * `mysqlclient`
 * `axios` 
-* `bootstrapvue`
+* `bootstrapvue` 
 
 #### 参考资料
 

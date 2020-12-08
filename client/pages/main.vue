@@ -38,49 +38,14 @@
                     <div class="col show-more">
                         <p>show more</p>
                     </div>
-
-                    <div class="row">
-                        <div class="col-md-6 d-flex align-items-stretch">
-                            <div class="card" style='background-image: url("https://cdn.acwing.com/media/user/profile/photo/5400_lg_6904153088.jpg");'>
-                                <div class="card-body">
-                                    <h5 class="card-title"><a href="">Our Mission</a></h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua.</p>
-                                    <div class="read-more"><a href="#"><i class="icofont-arrow-right"></i> Read More</a></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-                            <div class="card" style='background-image: url("https://cdn.acwing.com/media/user/profile/photo/5400_lg_6904153088.jpg");'>
-                                <div class="card-body">
-                                    <h5 class="card-title"><a href="">Our Plan</a></h5>
-                                    <p class="card-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem doloremque laudantium, totam rem.</p>
-                                    <div class="read-more"><a href="#"><i class="icofont-arrow-right"></i> Read More</a></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 d-flex align-items-stretch mt-4">
-                            <div class="card" style='background-image: url("https://cdn.acwing.com/media/user/profile/photo/5400_lg_6904153088.jpg");'>
-                                <div class="card-body">
-                                    <h5 class="card-title"><a href="">Our Vision</a></h5>
-                                    <p class="card-text">Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores.</p>
-                                    <div class="read-more"><a href="#"><i class="icofont-arrow-right"></i> Read More</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 d-flex align-items-stretch mt-4">
-                            <div class="card" style='background-image: url("https://cdn.acwing.com/media/user/profile/photo/5400_lg_6904153088.jpg");'>
-                                <div class="card-body">
-                                    <h5 class="card-title"><a href="">Our Care</a></h5>
-                                    <p class="card-text">Nostrum eum sed et autem dolorum perspiciatis. Magni porro quisquam laudantium voluptatem.</p>
-                                    <div class="read-more"><a href="#"><i class="icofont-arrow-right"></i> Read More</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
+
+                <template v-for="diary in diaries">
+                    <div :key="diary.id" class="row">
+                        <diary-card :diary="diary"></diary-card>
+                    </div>
+                </template>
+
             </div>
 
             <hr />
@@ -95,9 +60,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    <template v-for="recipe in recipes">
-                        <div :key="recipe.id" class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                            <recipe-card :onDelete="deleteRecipe" :recipe="recipe"></recipe-card>
+                    <template v-for="food in foods">
+                        <div :key="food.id">
+                            <FoodCard :food="food">
+                            </FoodCard>
                         </div>
                     </template>
                 </div>
@@ -115,7 +81,62 @@
 import navBar from "~/components/navbar.vue";
 import myFooter from "~/components/myFooter.vue";
 import carousel from '~/components/carousel.vue';
+import DiaryCard from "~/components/DiaryCard.vue";
 import RecipeCard from "~/components/RecipeCard.vue";
+
+const diaryData = [
+    {
+        id: 1,
+        title: "This is title",
+        introduction: "This is introductiion.",
+        dateAndTime: "2020 12 7",
+        picture: "/images/food-1.jpeg",
+    },
+
+    {
+        id: 1,
+        title: "This is title",
+        introduction: "This is introductiion.",
+        dateAndTime: "2020 12 7",
+        picture: "/images/food-1.jpeg",
+    },
+
+    {
+        id: 1,
+        title: "This is title",
+        introduction: "This is introductiion.",
+        dateAndTime: "2020 12 7",
+        picture: "/images/food-1.jpeg",
+    }
+]
+
+const foodData = 
+[
+    {
+        id: 1,
+        name: "日记1",
+        introduction: "日记摘要1",
+        picture: "/images/food-1.jpeg",
+    },
+    {
+        id: 1,
+        name: "日记1",
+        introduction: "日记摘要1",
+        picture: "/images/food-1.jpeg",
+    },
+    {
+        id: 1,
+        name: "日记1",
+        introduction: "日记摘要1",
+        picture: "/images/food-1.jpeg",
+    },
+    {
+        id: 1,
+        name: "日记1",
+        introduction: "日记摘要1",
+        picture: "/images/food-1.jpeg",
+    },
+];
 
 export default {
     head() {
@@ -126,18 +147,22 @@ export default {
         myFooter,
         carousel,
         RecipeCard,
+        DiaryCard,
     },
 
     async asyncData({ $axios, params }) {
         try {
+            let diaries = diaryData
             let recipes = await $axios.$get(`/recipes/`);
-            return { recipes };
+            let foods = foodData
+            return { recipes, diaries, foods };
         } catch (e) {
-            return { recipes: [] };
+            console.log(e);
+            return { recipes: [], diaries: [], foods: [] };
         }
     },
     data() {
-        return { recipes: [] };
+        return { recipes: [], diaries: [], foods: [] };
     },
     methods: {
         async deleteRecipe(recipe_id) {
@@ -157,7 +182,7 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 
 .show-recipes {
     padding-top: 15px;
@@ -191,60 +216,6 @@ export default {
   margin-bottom: 0;
   color: #919191;
   font-size: 14px;
-}
-
-.show-diaries .card {
-  border: 0;
-  padding: 160px 20px 20px 20px;
-  position: relative;
-  width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-.show-diaries .card-body {
-  z-index: 10;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 15px 30px;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-  transition: 0.3s;
-  transition: ease-in-out 0.4s;
-  border-radius: 5px;
-}
-
-.show-diaries .card-title {
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.show-diaries .card-title a {
-  color: #150517;
-}
-
-.show-diaries .card-text {
-  color: #5e5e5e;
-}
-
-.show-diaries .read-more a {
-  color: #777777;
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 12px;
-  transition: 0.4s;
-}
-
-.show-diaries .read-more a:hover {
-  text-decoration: underline;
-}
-
-.show-diaries .card:hover .card-body {
-  background: #ff7f5d;
-}
-
-.show-diaries .card:hover .read-more a, .show-diaries .card:hover .card-title, .show-diaries .card:hover .card-title a, .show-diaries .card:hover .card-text {
-  color: #fff;
 }
 
 </style>
