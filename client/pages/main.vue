@@ -2,7 +2,7 @@
     <div>
         <navBar />
         <main class="container">
-            <div class="my-carousel mt-5" id="my-carousel">
+            <div class="my-carousel" id="my-carousel" style="margin-top: 65px">
                 <div class="container">
                     <carousel />
                 </div>
@@ -30,42 +30,45 @@
 
             <hr />
 
-            <div id="show-diaries" class="show-diaries">
-                <div class="row title-row">
-                    <div class="col section-title">
-                        <h2>最新美食日记</h2>
+            <div id="show-diaries" class="show-diaries mt-3">
+                <div class="container">
+                    <div class="row title-row">
+                        <div class="col section-title">
+                            <h2>最新美食日记</h2>
+                        </div>
+                        <div class="col show-more">
+                            <p>show more</p>
+                        </div>
                     </div>
-                    <div class="col show-more">
-                        <p>show more</p>
-                    </div>
-                </div>
 
-                <template v-for="diary in diaries">
-                    <div :key="diary.id" class="row">
-                        <diary-card :diary="diary"></diary-card>
-                    </div>
-                </template>
+                    <template v-for="diary in diaries">
+                        <div :key="diary.id" class="row">
+                            <diary-card :diary="diary"></diary-card>
+                        </div>
+                    </template>
+                </div>
 
             </div>
 
             <hr />
 
-            <div id="show-foods" class="show-foods">
-                <div class="row title-row">
-                    <div class="col section-title">
-                        <h2>食物知多少</h2>
-                    </div>
-                    <div class="col show-more">
-                        <p>show more</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <template v-for="food in foods">
-                        <div :key="food.id">
-                            <FoodCard :food="food">
-                            </FoodCard>
+            <div id="show-foods" class="show-foods mt-3">
+                <div class="container">
+                    <div class="row title-row">
+                        <div class="col section-title">
+                            <h2>食物知多少</h2>
                         </div>
-                    </template>
+                        <div class="col show-more">
+                            <p>show more</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <template v-for="food in foods">
+                            <div :key="food.id" class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                                <food-card :food="food"> </food-card>
+                            </div>
+                        </template>
+                    </div>
                 </div>
             </div>
 
@@ -81,8 +84,6 @@
 import navBar from "~/components/navbar.vue";
 import myFooter from "~/components/myFooter.vue";
 import carousel from '~/components/carousel.vue';
-import DiaryCard from "~/components/DiaryCard.vue";
-import RecipeCard from "~/components/RecipeCard.vue";
 
 const diaryData = [
     {
@@ -146,8 +147,6 @@ export default {
         navBar,
         myFooter,
         carousel,
-        RecipeCard,
-        DiaryCard,
     },
 
     async asyncData({ $axios, params }) {

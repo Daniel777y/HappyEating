@@ -26,8 +26,8 @@ export default {
 
 <style scoped>
 .card {
-  width: 300px;
-  display: inline-block;
+  /* width: 250px; */
+  /* display: inline-block; */
   margin: 1rem;
   border-radius: 5px;
   box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
@@ -54,8 +54,8 @@ export default {
 }
 
 .bg-pic {
-    height: 100%;
-    width: auto;
+    height: 12rem;
+    width: 100%;
 }
 
 .card-img {

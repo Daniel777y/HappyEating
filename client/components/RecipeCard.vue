@@ -23,6 +23,18 @@ export default {
 </script>
 
 <style scoped>
+.card {
+  /* width: 250px; */
+  /* display: inline-block; */
+  margin: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
 .card-img-top {
   height: 12rem;
   width: 100%;

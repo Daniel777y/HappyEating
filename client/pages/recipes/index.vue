@@ -1,11 +1,11 @@
 <template>
     <div>
-        <navbar />
-        <main class="container mt-5">
+        <navBar />
+        <main class="container" style="margin-top: 65px">
             <div class="row">
                 <div class="col-12 text-right mb-4">
                     <div class="d-flex justify-content-between">
-                        <h3>吃货天堂</h3>
+                        <h3>美食食谱</h3>
                         <nuxt-link to="/recipes/add" class="btn btn-info">添加食谱</nuxt-link>
                     </div>
                 </div>
