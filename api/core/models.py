@@ -26,9 +26,18 @@ class Recipe(models.Model):
 
 class Diary(models.Model):
     title = models.CharField(max_length=120, verbose_name='标题')
+    introduction = models.CharField(max_length=120, verbose_name='一句话介绍')
     picture = models.FileField(verbose_name='图片')
     article_content = models.TextField(verbose_name='正文')
     author = models.CharField(max_length=120, verbose_name='作者')
+    create_time = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = '日记'
+        verbose_name_plural = '日记'
+
+    def __str__(self):
+        return '日记：{}'.format(self.title)
 
 
 class Food(models.Model):
@@ -38,7 +47,9 @@ class Food(models.Model):
         ('Aquatic_products', '水产品'),
         ('Dairy_products', '乳制品'),
         ('Beverage', '饮品'),
-        ('Fruit_vegetable', '果蔬')
+        ('Fruit_vegetable', '果蔬'),
+        ('Snacks', '零食'),
+        ('Other', '其它'),
     )
     name = models.CharField(max_length=120, verbose_name='名称')
     simple_intro = models.TextField(verbose_name='简单介绍')

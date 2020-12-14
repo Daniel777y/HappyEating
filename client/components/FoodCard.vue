@@ -4,16 +4,18 @@
             <img :src="food.picture" class="bg-pic">
             <div class="overlay">
                 <div class="overlay-content">
-                    <a href="#!">详情</a>
+                    <nuxt-link :to="`/foods/${food.id}/`">
+                        详情
+                    </nuxt-link>
                 </div>
             </div>
         </div>
         
         <div class="card-content">
-            <a href="#!">
+            <nuxt-link :to="`/foods/${food.id}/`">
                 <h2>{{ food.name }}</h2>
-                <p>{{ food.introduction }}</p>
-            </a>
+                <p>{{ food.simple_intro }}</p>
+            </nuxt-link>
         </div>
     </div>
 </template>

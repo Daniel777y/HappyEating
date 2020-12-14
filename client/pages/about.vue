@@ -1,11 +1,11 @@
 <template>
     <div>
         <navBar />
-        <body>
+        <main>
             <div>
                 关于页面
             </div>
-        </body>
+        </main>
         <myFooter />
     </div>
 </template>
@@ -19,10 +19,7 @@ export default {
     head() {
         return { title: "关于 - 欢乐食光" };
     },
-    components: {
-        navBar,
-        myFooter,
-    },
+    components: { navBar, myFooter, },
 };
 </script>
 

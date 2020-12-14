@@ -17,7 +17,7 @@ import myFooter from "~/components/myFooter.vue";
 
 export default {
     head() {
-        return { title: "食物 - 欢乐食光" };
+        return { title: "添加日记 - 欢乐食光" };
     },
     components: { navBar, myFooter, },
 };

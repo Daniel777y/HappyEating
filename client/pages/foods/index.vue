@@ -23,6 +23,7 @@
 
 import navBar from "~/components/navbar.vue";
 import myFooter from "~/components/myFooter.vue";
+import FoodCard from "~/components/FoodCard.vue";
 
 const foodData = 
 [
@@ -56,13 +57,10 @@ export default {
     head() {
         return { title: "食物介绍 - 欢乐食光" };
     },
-    components: {
-        navBar,
-        myFooter,
-    },
+    components: { navBar, myFooter, FoodCard, },
     async asyncData({ $axios, params }) {
         try {
-            let foods = foodData
+            let foods = await $axios.$get(`/foods/`);
             return { foods };
         } catch (e) {
             console.log(e);
