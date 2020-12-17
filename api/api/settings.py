@@ -149,3 +149,8 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
      ],
 }
+
+# JWT
+JWT_AUTH = {
+    'JWT_RESPONSE_PAYLOAD_HANDLER': 'account.utils.jwt_response_payload_handler',
+}

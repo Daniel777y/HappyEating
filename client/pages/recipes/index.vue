@@ -33,7 +33,7 @@ export default {
 
     async asyncData({ $axios, params }) {
         try {
-            let recipes = await $axios.$get(`/recipes/`);
+            let recipes = await $axios.$get(`/api/recipes/`);
             return { recipes };
         } catch (e) {
             return { recipes: [] };

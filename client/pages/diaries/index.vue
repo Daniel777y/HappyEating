@@ -58,7 +58,7 @@ export default {
     components: { navBar, myFooter, DiaryCard },
     async asyncData({ $axios, params }) {
         try {
-            let diaries = await $axios.$get(`/diaries/`);
+            let diaries = await $axios.$get(`/api/diaries/`);
             return { diaries };
         } catch (e) {
             console.log(e);

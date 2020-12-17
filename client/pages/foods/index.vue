@@ -60,7 +60,7 @@ export default {
     components: { navBar, myFooter, FoodCard, },
     async asyncData({ $axios, params }) {
         try {
-            let foods = await $axios.$get(`/foods/`);
+            let foods = await $axios.$get(`/api/foods/`);
             return { foods };
         } catch (e) {
             console.log(e);

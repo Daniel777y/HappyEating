@@ -151,9 +151,9 @@ export default {
 
     async asyncData({ $axios, params }) {
         try {
-            let diaries = diaryData
-            let recipes = await $axios.$get(`/recipes/`);
-            let foods = foodData
+            let diaries = diaryData;
+            let recipes = await $axios.$get(`/api/recipes/`);
+            let foods = foodData;
             return { recipes, diaries, foods };
         } catch (e) {
             console.log(e);
