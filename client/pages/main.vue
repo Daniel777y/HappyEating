@@ -14,9 +14,6 @@
                         <div class="col section-title">
                             <h2>最新食谱</h2>
                         </div>
-                        <div class="col show-more">
-                            <p>show more</p>
-                        </div>
                     </div>
                     <div class="row">
                         <template v-for="recipe in recipes">
@@ -36,9 +33,6 @@
                         <div class="col section-title">
                             <h2>最新美食日记</h2>
                         </div>
-                        <div class="col show-more">
-                            <p>show more</p>
-                        </div>
                     </div>
 
                     <template v-for="diary in diaries">
@@ -57,9 +51,6 @@
                     <div class="row title-row">
                         <div class="col section-title">
                             <h2>食物知多少</h2>
-                        </div>
-                        <div class="col show-more">
-                            <p>show more</p>
                         </div>
                     </div>
                     <div class="row">

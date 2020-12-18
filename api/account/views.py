@@ -4,8 +4,9 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from .serializer import UserSerializer, RegisterSerializer, LogoutSerializer
+from .serializer import UserSerializer, RegisterSerializer, LogoutSerializer, MyTokenObtainPairSerializer
 from django.contrib.auth.models import User
+from rest_framework_simplejwt.views import TokenObtainPairView
 
 # Create your views here.
 class RegisterViewSet(viewsets.ModelViewSet):
@@ -28,4 +29,7 @@ class LogoutView(APIView):
         serializer.save()
 
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+class MyTokenObtainPairView(TokenObtainPairView):
+    serializer_class = MyTokenObtainPairSerializer
 

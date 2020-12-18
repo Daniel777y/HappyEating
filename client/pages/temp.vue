@@ -1,138 +1,152 @@
 <template>
-    <div>
-        <navBar />
-        <main class="container mt-5">
-            
-            <div id="show-diaries" class="show-diaries">
-                <div class="row title-row">
-                    <div class="col section-title">
-                        <h2>最新美食日记</h2>
-                    </div>
-                    <div class="col show-more">
-                        <p>show more</p>
-                    </div>
+    <main class="login_form">
+        <div id="app">
+            <div id="login">
+                <div id="description">
+                    <h1>登录</h1>
+                    <p>开始你的美食之旅吧！</p>
                 </div>
-                <template v-for="diary in diaries">
-                    <div :key="diary.id" class="row">
-                        <diary-card :diary="diary"></diary-card>
-                    </div>
-                </template>
-            </div>
+                <div id="form">
+                    <form @submit.prevent="doLogin">
+                        <label for="email">Email</label>
+                        <input type="text" id="email" v-model="email" placeholder="请输入邮箱" autocomplete="off">
 
-        </main>
-        <myFooter />
-    </div>
+                        <label for="password">Password</label>&nbsp;
+                        <!-- <i class="fas" :class="[passwordIcon]" @click="hidePassword = !hidePassword"></i> -->
+                        <input type="password" id="password" v-model="password" placeholder="请输入密码">
+
+                        <button type="submit">确认</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
 </template>
 
 <script>
-
-import navBar from "~/components/navbar.vue";
-import myFooter from "~/components/myFooter.vue";
-import carousel from '~/components/carousel.vue';
-import RecipeCard from "~/components/RecipeCard.vue";
-import DiaryCard from "~/components/DiaryCard.vue";
-
-const diarydata = [
-    {
-        id: 1,
-        title: "This is title",
-        introduction: "This is introductiion.",
-        dateAndTime: "2020 12 7",
-        picture: "/images/food-1.jpeg",
-    },
-
-    {
-        id: 1,
-        title: "This is title",
-        introduction: "This is introductiion.",
-        dateAndTime: "2020 12 7",
-        picture: "/images/food-1.jpeg",
-    },
-
-    {
-        id: 1,
-        title: "This is title",
-        introduction: "This is introductiion.",
-        dateAndTime: "2020 12 7",
-        picture: "/images/food-1.jpeg",
-    }
-]
-
-export default {
-    head() {
-        return { title: "首页 - 欢乐食光" };
-    },
-    components: {
-        navBar,
-        myFooter,
-        carousel,
-        RecipeCard,
-        DiaryCard,
-    },
-
-    async asyncData({ $axios, params }) {
-        try {
-            let diaries = diarydata
-            return { diaries };
-        } catch (e) {
-            return { diaries: [] };
-        }
-    },
-    data() {
-        return { diaries: [] };
-    },
-    methods: {
-        async deleteRecipe(recipe_id) {
-            try {
-                if (confirm('确认要删除吗？')) {
-                    await this.$axios.$delete(`/recipes/${recipe_id}/`);
-                    let newRecipes = await this.$axios.$get("/recipes/");
-                    this.recipes = newRecipes;
-                }
-            } catch (e) {
-                console.log(e);
-            }
+    export default {
+        data() {
+            return {}
         }
     }
-};
-
 </script>
 
+<style scoped>
 
-<style>
+.login_form {
+	background-color: #fff;
+	border-radius: 20px;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 
-.show-recipes {
-    padding-top: 15px;
 }
 
-.section-title {
-    text-align: left;
-    height: 60px;
-    padding-bottom: 5px;
+div#app {
+  width: 100%;
+  height: 100%;
 }
 
-.section-title h2 {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    position: relative;
+div#app div#login {
+  align-items: center;
+  background-color: #e2e2e5;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
-.section-title h2::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background: #ff7f5d;
-    bottom: 0;
-    left: calc(50% - 25px);
+div#app div#login div#description {
+  background-color: #ffffff;
+  width: 300px;
+  padding: 35px;
 }
 
-.section-title p {
-    margin-bottom: 0;
-    color: #919191;
-    font-size: 14px;
+div#app div#login div#description h1,
+div#app div#login div#description p {
+  margin: 0;
+}
+
+div#app div#login div#description p {
+  font-size: 0.8em;
+  color: #95a5a6;
+  margin-top: 10px;
+}
+
+div#app div#login div#form {
+  background-color: #ff6f1c;
+  border-radius: 5px;
+  box-shadow: 0px 0px 30px 0px #666;
+  color: #ecf0f1;
+  width: 350px;
+  padding: 35px;
+}
+
+div#app div#login div#form label,
+div#app div#login div#form input {
+  outline: none;
+  width: 100%;
+}
+
+div#app div#login div#form label {
+  color: #95a5a6;
+  font-size: 0.8em;
+}
+
+div#app div#login div#form input {
+  background-color: transparent;
+  border: none;
+  color: #ecf0f1;
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+
+div#app div#login div#form ::placeholder {
+  color: #ecf0f1;
+  opacity: 1;
+}
+
+div#app div#login div#form button {
+  background-color: #ffffff;
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  transition: background-color 0.2s ease-in-out;
+  width: 100%;
+}
+
+div#app div#login div#form button:hover {
+  background-color: #eeeeee;
+}
+
+@media screen and (max-width: 600px) {
+  div#app div#login {
+    align-items: unset;
+    background-color: unset;
+    display: unset;
+    justify-content: unset;
+  }
+
+  div#app div#login div#description {
+    margin: 0 auto;
+    max-width: 350px;
+    width: 100%;
+  }
+
+  div#app div#login div#form {
+    border-radius: unset;
+    box-shadow: unset;
+    width: 100%;
+  }
+
+  div#app div#login div#form form {
+    margin: 0 auto;
+    max-width: 280px;
+    width: 100%;
+  }
 }
 
 </style>
