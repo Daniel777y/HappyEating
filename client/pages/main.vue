@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="whole">
         <navBar />
         <main class="container">
             <div class="my-carousel" id="my-carousel" style="margin-top: 65px">
@@ -157,7 +157,7 @@ export default {
   display: block;
   width: 50px;
   height: 3px;
-  background: #ff7f5d;
+  background: #ffc400;
   bottom: 0;
   left: calc(50% - 25px);
 }

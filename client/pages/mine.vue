@@ -156,7 +156,7 @@ export default {
   display: block;
   width: 50px;
   height: 3px;
-  background: #ff7f5d;
+  background: #ffc400;
   bottom: 0;
   left: calc(50% - 25px);
 }

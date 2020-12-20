@@ -21,27 +21,6 @@
                 ></b-carousel-slide>
             </template>
 
-            <!-- <b-carousel-slide
-                caption="First slide"
-                img-src="https://picsum.photos/1024/480/?image=52"
-            ></b-carousel-slide>
-
-            <b-carousel-slide 
-                caption="Second slide"
-                img-src="https://picsum.photos/1024/480/?image=54"
-            >
-            </b-carousel-slide>
-
-            <b-carousel-slide 
-                caption="Third slide"
-                img-src="https://picsum.photos/1024/480/?image=58"
-            ></b-carousel-slide>
-
-            <b-carousel-slide
-                caption="Forth slide"
-                img-src="https://picsum.photos/1024/480/?image=55"
-            ></b-carousel-slide> -->
-
         </b-carousel>
     </div>
 </template>
