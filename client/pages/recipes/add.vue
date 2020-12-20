@@ -131,7 +131,7 @@ export default {
                 let code = e.response.status;
                 if (code == 400) {
                     alert('请将食谱填写完整！')
-                    location. reload()
+                    location.reload()
                     this.$router.go(0)
                 }
                 console.log(e.response);

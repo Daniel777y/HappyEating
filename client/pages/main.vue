@@ -4,7 +4,29 @@
         <main class="container">
             <div class="my-carousel" id="my-carousel" style="margin-top: 65px">
                 <div class="container">
-                    <carousel />
+                    <div id="carousel_con">
+                        <b-carousel
+                            id="carousel"
+                            v-model="slide"
+                            :interval="4000"
+                            controls
+                            indicators
+                            background="#ababab"
+                            img-width="1024"
+                            img-height="480"
+                            style="text-shadow: 1px 1px 2px #333;"
+                            @sliding-start="onSlideStart"
+                            @sliding-end="onSlideEnd"
+                        >
+                            <template v-for="slide in slideData">
+                                <b-carousel-slide
+                                    :key="slide.id"
+                                    :caption="slide.content"
+                                    :img-src="slide.picture"
+                                ></b-carousel-slide>
+                            </template>
+                        </b-carousel>
+                    </div>
                 </div>
             </div>
 
@@ -18,7 +40,7 @@
                     <div class="row">
                         <template v-for="recipe in recipes">
                             <div :key="recipe.id" class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                                <recipe-card :onDelete="deleteRecipe" :recipe="recipe"></recipe-card>
+                                <recipe-card :recipe="recipe"></recipe-card>
                             </div>
                         </template>
                     </div>
@@ -84,29 +106,25 @@ export default {
 
     async asyncData({ $axios, params }) {
         try {
+            let slideData = await $axios.$get(`/api/slides/`);
             let diaries = await $axios.$get(`/api/diaries/`);
             let recipes = await $axios.$get(`/api/recipes/`);
             let foods = await $axios.$get(`/api/foods/`);
-            return { recipes, diaries, foods };
+            return { recipes, diaries, foods, slideData };
         } catch (e) {
             console.log(e);
-            return { recipes: [], diaries: [], foods: [] };
+            return { recipes: [], diaries: [], foods: [], slideData: [] };
         }
     },
     data() {
-        return { recipes: [], diaries: [], foods: [] };
+        return { recipes: [], diaries: [], foods: [], slide: 0, sliding: null, };
     },
     methods: {
-        async deleteRecipe(recipe_id) {
-            try {
-                if (confirm('确认要删除吗？')) {
-                    await this.$axios.$delete(`/recipes/${recipe_id}/`);
-                    let newRecipes = await this.$axios.$get("/recipes/");
-                    this.recipes = newRecipes;
-                }
-            } catch (e) {
-                console.log(e);
-            }
+        onSlideStart(slide) {
+            this.sliding = true
+        },
+        onSlideEnd(slide) {
+            this.sliding = false
         }
     }
 };

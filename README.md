@@ -16,6 +16,7 @@
 * `mysqlclient`
 * `axios` 
 * `bootstrapvue` 
+* `mavon-editor` 
 
 #### 参考资料
 

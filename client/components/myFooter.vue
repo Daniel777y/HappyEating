@@ -1,6 +1,6 @@
 <template>
     <div id="myFooter" class="fixed-bottom">
-        <b-navbar toggleable="lg" type="dark" variant="info">
+        <b-navbar toggleable="lg" type="dark" variant="warning">
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav small="true" class="ml-auto">
                     <b-nav-text>2020 - 欢乐食光</b-nav-text>

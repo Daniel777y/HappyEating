@@ -41,18 +41,9 @@ export default {
     head() {
         return { title: "食谱详情" };
     },
-    components: {
-        navBar,
-        myFooter,
-    },
-    async asyncData({ $axios, params }) {
-        try {
-            let recipe = await $axios.$get(`/api/recipes/${params.id}`);
-            return { recipe };
-        } catch (e) {
-            return { recipe: [] };
-        }
-    },
+
+    components: { navBar, myFooter, },
+
     data() {
         return {
             recipe: {
@@ -64,7 +55,16 @@ export default {
                 prep_guide: ""
             }
         };
-    }
+    },
+
+    async asyncData({ $axios, params }) {
+        try {
+            let recipe = await $axios.$get(`/api/recipes/${params.id}`);
+            return { recipe };
+        } catch (e) {
+            return { recipe: [] };
+        }
+    },
 };
 </script>
   

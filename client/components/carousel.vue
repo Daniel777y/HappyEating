@@ -13,64 +13,90 @@
           @sliding-start="onSlideStart"
           @sliding-end="onSlideEnd"
         >
-            <!-- Text slides with image -->
-            <b-carousel-slide
+            <template v-for="slide in sampleData">
+                <b-carousel-slide
+                    :key="slide.id"
+                    :caption="slide.content"
+                    :img-src="slide.picture"
+                ></b-carousel-slide>
+            </template>
+
+            <!-- <b-carousel-slide
                 caption="First slide"
-                text="Nulla vitae elit libero, a pharetra augue mollis interdum."
                 img-src="https://picsum.photos/1024/480/?image=52"
             ></b-carousel-slide>
 
-            <!-- Slides with custom text -->
-            <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
-                <h1>Hello world!</h1>
+            <b-carousel-slide 
+                caption="Second slide"
+                img-src="https://picsum.photos/1024/480/?image=54"
+            >
             </b-carousel-slide>
 
-            <!-- Slides with image only -->
-            <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58">
-            </b-carousel-slide>
+            <b-carousel-slide 
+                caption="Third slide"
+                img-src="https://picsum.photos/1024/480/?image=58"
+            ></b-carousel-slide>
 
-            <!-- Slides with img slot -->
-            <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
-            <b-carousel-slide>
-                <template v-slot:img>
-                    <img
-                      class="d-block img-fluid w-100"
-                      width="1024"
-                      height="480"
-                      src="https://picsum.photos/1024/480/?image=55"
-                      alt="image slot"
-                    >
-                </template>
-            </b-carousel-slide>
+            <b-carousel-slide
+                caption="Forth slide"
+                img-src="https://picsum.photos/1024/480/?image=55"
+            ></b-carousel-slide> -->
 
-            <!-- Slide with blank fluid image to maintain slide aspect ratio -->
-            <b-carousel-slide caption="Blank Image" img-blank img-alt="Blank image">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros felis, tincidunt
-                  a tincidunt eget, convallis vel est. Ut pellentesque ut lacus vel interdum.
-                </p>
-            </b-carousel-slide>
         </b-carousel>
     </div>
 </template>
 
 <script>
-  export default {
+const sampleData = 
+[
+    {
+        id: 1,
+        content: "First slide",
+        picture: "https://picsum.photos/1024/480/?image=52",
+    },
+    {
+        id: 2,
+        content: "Second slide",
+        picture: "https://picsum.photos/1024/480/?image=54",
+    },
+    {
+        id: 3,
+        content: "Third slide",
+        picture: "https://picsum.photos/1024/480/?image=58",
+    },
+    {
+        id: 4,
+        content: "Forth slide",
+        picture: "https://picsum.photos/1024/480/?image=55",
+    },
+];
+
+export default {
     data() {
-      return {
-        slide: 0,
-        sliding: null
-      }
+        return {
+            slide: 0,
+            sliding: null,
+            sampleData
+        }
+    },
+    async asyncData({ $axios, params }) {
+        try {
+            let slideData = await $axios.$get(`/api/slides/`);
+            return { slideData };
+        } catch (e) {
+            console.log(e);
+            return { slideData: [] };
+        }
     },
     methods: {
-      onSlideStart(slide) {
-        this.sliding = true
-      },
-      onSlideEnd(slide) {
-        this.sliding = false
-      }
+        onSlideStart(slide) {
+            this.sliding = true
+        },
+        onSlideEnd(slide) {
+            this.sliding = false
+        }
     }
-  }
+}
 </script>
 
 <style>

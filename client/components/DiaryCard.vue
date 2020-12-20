@@ -94,7 +94,7 @@ export default {
 }
 
 .card:hover .card-body {
-    background: #ff7f5d;
+    background: #ffc400;
 }
 
 .card:hover .read-more a, .show-diaries .card:hover .card-title, .show-diaries .card:hover .card-title a, .show-diaries .card:hover .card-text {

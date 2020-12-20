@@ -2,8 +2,8 @@
     <header>
         <div class="text-box">
             <h1>欢乐食光 😋</h1>
-            <p class="mt-3">制作我们喜爱的美食 ❤️ ️</p>
-            <nuxt-link class="btn btn-outline btn-large btn-info" to="/main">
+            <p class="mt-3">走进美食的世界 ❤️ ️</p>
+            <nuxt-link class="btn btn-outline btn-large btn-warning" to="/main">
                 进入首页 
                 <span class="ml-2">&rarr;</span>
             </nuxt-link>

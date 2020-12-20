@@ -133,7 +133,7 @@ div#app div#login div#description p {
 }
 
 div#app div#login div#form {
-  background-color: #ff6f1c;
+  background-color: #ffc400;
   border-radius: 5px;
   box-shadow: 0px 0px 30px 0px #666;
   color: #ecf0f1;

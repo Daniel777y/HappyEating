@@ -1,6 +1,6 @@
 <template>
     <div class="navBar fixed-top">
-        <b-navbar toggleable="lg" type="dark" variant="info">
+        <b-navbar toggleable="lg" type="dark" variant="warning">
             <b-navbar-brand to='/'> 欢乐食光 </b-navbar-brand>
             <!-- nav toggle -->
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -53,8 +53,7 @@ export default {
         logout() {
             alert('您已登出！');
             localStorage.clear();
-            location.reload()
-            this.$router.go(0)
+            this.$router.push('/');
         },
     },
 }

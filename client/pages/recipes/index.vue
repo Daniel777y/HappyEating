@@ -10,7 +10,7 @@
                 </div>
                 <template v-for="recipe in recipes">
                     <div :key="recipe.id" class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                        <recipe-card :onDelete="deleteRecipe" :recipe="recipe"></recipe-card>
+                        <recipe-card :recipe="recipe"></recipe-card>
                     </div>
                 </template>
             </div>
@@ -18,7 +18,7 @@
         <myFooter />
     </div>
 </template>
-  
+
 <script>
 import RecipeCard from "~/components/RecipeCard.vue";
 import myFooter from "~/components/myFooter.vue";
@@ -42,22 +42,9 @@ export default {
         return { recipes: [] };
     },
     methods: {
-        async deleteRecipe(recipe_id) {
-            try {
-                if (confirm('确认要删除吗？')) {
-                    await this.$axios.$delete(`/recipes/${recipe_id}/`);
-                    let newRecipes = await this.$axios.$get("/recipes/");
-                    this.recipes = newRecipes;
-                    location.reload()
-                    this.$router.go(0)
-                }
-            } catch (e) {
-                console.log(e);
-            }
-        }
     }
 };
 </script>
-  
+
 <style scoped>
 </style>

@@ -30,7 +30,6 @@ class Diary(models.Model):
     introduction = models.CharField(max_length=120, verbose_name='一句话介绍')
     picture = models.FileField(verbose_name='图片')
     article_content = models.TextField(verbose_name='正文')
-    author = models.CharField(max_length=120, verbose_name='作者')
     create_time = models.DateTimeField(auto_now_add=True)
     owner = models.CharField(max_length=120, verbose_name='作者')
 
@@ -70,3 +69,15 @@ class Food(models.Model):
   
     def __str__(self):
         return '食品：{}'.format(self.name)
+
+
+class Slide(models.Model):
+    content = models.CharField(max_length=120, verbose_name='内容')
+    picture = models.FileField(verbose_name='图片')
+
+    class Meta:
+        verbose_name = '轮播图'
+        verbose_name_plural = '轮播图'
+  
+    def __str__(self):
+        return '轮播内容：{}'.format(self.content)
