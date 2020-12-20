@@ -9,7 +9,7 @@ class RecipeSerializer(serializers.ModelSerializer):
         model = Recipe
         fields = (
             'id', 'name', 'ingredients', 'picture',
-            'difficulty', 'prep_time', 'prep_guide'
+            'difficulty', 'prep_time', 'prep_guide', 'owner'
         )
 
 
@@ -18,7 +18,7 @@ class DiarySerializer(serializers.ModelSerializer):
     class Meta:
         model = Diary
         fields = (
-            'id', 'title', 'introduction', 'picture', 'article_content', 'author', 'create_time'
+            'id', 'title', 'introduction', 'picture', 'article_content', 'author', 'create_time', 'owner'
         )
 
 

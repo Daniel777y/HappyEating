@@ -5,8 +5,8 @@ from .views import DiaryViewSet
 from .views import FoodViewSet
 
 router = DefaultRouter()
-router.register(r'recipes', RecipeViewSet)
-router.register(r'diaries', DiaryViewSet)
+router.register(r'recipes', RecipeViewSet, basename='Recipe')
+router.register(r'diaries', DiaryViewSet, basename='Diary')
 router.register(r'foods', FoodViewSet)
 
 urlpatterns = [

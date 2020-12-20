@@ -77,7 +77,7 @@ export default {
                     let code = error.response.status;
                     if (code == 401) {
                         alert('用户名与密码不匹配！')
-                        location. reload()
+                        location.reload()
                         this.$router.go(0)
                     }
                 })

@@ -11,7 +11,15 @@ from .models import Food
   
 class RecipeViewSet(viewsets.ModelViewSet):
     serializer_class = RecipeSerializer
-    queryset = Recipe.objects.all()
+    def get_queryset(self, username=None):
+        queryset = Recipe.objects.all()
+        username = self.request.query_params.get('username', None)
+        if username is not None:
+            queryset = queryset.filter(owner=username)
+            return queryset
+        else:
+            queryset = Recipe.objects.all()
+            return queryset
 
 
 class FoodViewSet(viewsets.ModelViewSet):
@@ -21,4 +29,12 @@ class FoodViewSet(viewsets.ModelViewSet):
 
 class DiaryViewSet(viewsets.ModelViewSet):
     serializer_class = DiarySerializer
-    queryset = Diary.objects.all()
+    def get_queryset(self, username=None):
+        queryset = Diary.objects.all()
+        username = self.request.query_params.get('username', None)
+        if username is not None:
+            queryset = queryset.filter(owner=username)
+            return queryset
+        else:
+            queryset = Diary.objects.all()
+            return queryset

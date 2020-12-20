@@ -86,10 +86,15 @@ export default {
                 ingredients: "",
                 difficulty: "",
                 prep_time: null,
-                prep_guide: ""
+                prep_guide: "",
+                owner: "",
             },
-            preview: ""
+            owner: "",
+            preview: "",
         };
+    },
+    mounted() {
+        this.owner = localStorage.getItem('username');
     },
     methods: {
         onFileChange(e) {
@@ -112,16 +117,24 @@ export default {
             const config = {
                 headers: { "content-type": "multipart/form-data" }
             };
+            this.recipe.owner = this.owner;
             let formData = new FormData();
             for (let data in this.recipe) {
+                console.log(data);
                 formData.append(data, this.recipe[data]);
             }
+            console.log(formData);
             try {
-                let response = await this.$axios.$post("/recipes/", formData, config);
+                let response = await this.$axios.$post("/api/recipes/", formData, config);
                 this.$router.push("/recipes/");
             } catch (e) {
+                let code = e.response.status;
+                if (code == 400) {
+                    alert('请将食谱填写完整！')
+                    location. reload()
+                    this.$router.go(0)
+                }
                 console.log(e.response);
-                console.log(e);
             }
         }
     }

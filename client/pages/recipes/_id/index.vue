@@ -47,7 +47,7 @@ export default {
     },
     async asyncData({ $axios, params }) {
         try {
-            let recipe = await $axios.$get(`/recipes/${params.id}`);
+            let recipe = await $axios.$get(`/api/recipes/${params.id}`);
             return { recipe };
         } catch (e) {
             return { recipe: [] };

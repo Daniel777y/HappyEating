@@ -73,7 +73,7 @@ export default {
     },
     async asyncData({ $axios, params }) {
         try {
-            let recipe = await $axios.$get(`/recipes/${params.id}`);
+            let recipe = await $axios.$get(`/api/recipes/${params.id}`);
             return { recipe };
         } catch (e) {
             return { recipe: [] };
@@ -122,7 +122,7 @@ export default {
                 formData.append(data, editedRecipe[data]);
             }
             try {
-                let response = await this.$axios.$patch(`/recipes/${editedRecipe.id}/`, formData, config);
+                let response = await this.$axios.$patch(`/api/recipes/${editedRecipe.id}/`, formData, config);
                 this.$router.push("/recipes/");
             } catch (e) {
                 console.log(e);

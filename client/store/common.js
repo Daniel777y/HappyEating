@@ -17,5 +17,6 @@ export default {
         this.access_token = '';
         this.refresh_token = '';
         this.username = '';
-    }
+    },
+
 }

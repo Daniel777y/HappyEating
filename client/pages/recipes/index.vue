@@ -6,7 +6,6 @@
                 <div class="col-12 text-right mb-4">
                     <div class="d-flex justify-content-between">
                         <h3>美食食谱</h3>
-                        <nuxt-link to="/recipes/add" class="btn btn-info">添加食谱</nuxt-link>
                     </div>
                 </div>
                 <template v-for="recipe in recipes">
@@ -49,6 +48,8 @@ export default {
                     await this.$axios.$delete(`/recipes/${recipe_id}/`);
                     let newRecipes = await this.$axios.$get("/recipes/");
                     this.recipes = newRecipes;
+                    location.reload()
+                    this.$router.go(0)
                 }
             } catch (e) {
                 console.log(e);

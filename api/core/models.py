@@ -15,6 +15,7 @@ class Recipe(models.Model):
                                   verbose_name='制作难度')
     prep_time = models.PositiveIntegerField(verbose_name='准备时间')
     prep_guide = models.TextField(verbose_name='制作指南')
+    owner = models.CharField(max_length=120, verbose_name='作者')
   
     class Meta:
         verbose_name = '食谱'
@@ -31,6 +32,7 @@ class Diary(models.Model):
     article_content = models.TextField(verbose_name='正文')
     author = models.CharField(max_length=120, verbose_name='作者')
     create_time = models.DateTimeField(auto_now_add=True)
+    owner = models.CharField(max_length=120, verbose_name='作者')
 
     class Meta:
         verbose_name = '日记'

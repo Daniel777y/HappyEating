@@ -76,75 +76,17 @@ import navBar from "~/components/navbar.vue";
 import myFooter from "~/components/myFooter.vue";
 import carousel from '~/components/carousel.vue';
 
-const diaryData = [
-    {
-        id: 1,
-        title: "This is title",
-        introduction: "This is introductiion.",
-        dateAndTime: "2020 12 7",
-        picture: "/images/food-1.jpeg",
-    },
-
-    {
-        id: 1,
-        title: "This is title",
-        introduction: "This is introductiion.",
-        dateAndTime: "2020 12 7",
-        picture: "/images/food-1.jpeg",
-    },
-
-    {
-        id: 1,
-        title: "This is title",
-        introduction: "This is introductiion.",
-        dateAndTime: "2020 12 7",
-        picture: "/images/food-1.jpeg",
-    }
-]
-
-const foodData = 
-[
-    {
-        id: 1,
-        name: "日记1",
-        introduction: "日记摘要1",
-        picture: "/images/food-1.jpeg",
-    },
-    {
-        id: 1,
-        name: "日记1",
-        introduction: "日记摘要1",
-        picture: "/images/food-1.jpeg",
-    },
-    {
-        id: 1,
-        name: "日记1",
-        introduction: "日记摘要1",
-        picture: "/images/food-1.jpeg",
-    },
-    {
-        id: 1,
-        name: "日记1",
-        introduction: "日记摘要1",
-        picture: "/images/food-1.jpeg",
-    },
-];
-
 export default {
     head() {
         return { title: "首页 - 欢乐食光" };
     },
-    components: {
-        navBar,
-        myFooter,
-        carousel,
-    },
+    components: { navBar, myFooter, carousel, },
 
     async asyncData({ $axios, params }) {
         try {
-            let diaries = diaryData;
+            let diaries = await $axios.$get(`/api/diaries/`);
             let recipes = await $axios.$get(`/api/recipes/`);
-            let foods = foodData;
+            let foods = await $axios.$get(`/api/foods/`);
             return { recipes, diaries, foods };
         } catch (e) {
             console.log(e);
