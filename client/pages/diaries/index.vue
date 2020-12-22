@@ -1,4 +1,5 @@
 <template>
+    <!-- 日记展示总页面 -->
     <div>
         <navBar />
         <main class="container" style="margin-top: 65px">

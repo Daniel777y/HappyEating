@@ -1,4 +1,5 @@
 <template>
+    <!-- 食谱展示详情 -->
     <div>
         <navBar />
         <main class="container my-5">

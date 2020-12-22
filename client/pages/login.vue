@@ -1,4 +1,5 @@
 <template>
+    <!-- 登录页面 -->
     <div>
         <navBar />
         <main class="login_form">
@@ -56,6 +57,7 @@ export default {
                 axios.post(`http://localhost:8000/api/token/`, _this.loginForm).then(res => {
                     console.log(res);
 
+                    // 存入缓存
                     localStorage.setItem('access_token', res.data.access);
                     localStorage.setItem('refresh_token', res.data.refresh);
                     localStorage.setItem('username', res.data.username);

@@ -1,4 +1,5 @@
 <template>
+    <!-- 页脚样式 -->
     <div id="myFooter" class="fixed-bottom">
         <b-navbar toggleable="lg" type="dark" variant="warning">
             <b-collapse id="nav-collapse" is-nav>

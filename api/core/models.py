@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 
+# 食谱
 class Recipe(models.Model):
     DIFFICULTY_LEVELS = (
         ('Easy', '容易'),
@@ -25,6 +26,7 @@ class Recipe(models.Model):
         return '{} 的食谱'.format(self.name)
 
 
+# 日记
 class Diary(models.Model):
     title = models.CharField(max_length=120, verbose_name='标题')
     introduction = models.CharField(max_length=120, verbose_name='一句话介绍')
@@ -41,6 +43,7 @@ class Diary(models.Model):
         return '日记：{}'.format(self.title)
 
 
+# 食物 
 class Food(models.Model):
     FOOD_TYPE = (
         ('Meat', '肉类'),
@@ -71,6 +74,7 @@ class Food(models.Model):
         return '食品：{}'.format(self.name)
 
 
+# 轮播
 class Slide(models.Model):
     content = models.CharField(max_length=120, verbose_name='内容')
     picture = models.FileField(verbose_name='图片')

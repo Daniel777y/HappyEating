@@ -1,4 +1,5 @@
 <template>
+    <!-- 首页 -->
     <div class="whole">
         <navBar />
         <main class="container">

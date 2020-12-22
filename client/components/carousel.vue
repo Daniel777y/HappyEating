@@ -1,4 +1,5 @@
 <template>
+    <!-- 图片轮播 -->
     <div id="carousel_con">
         <b-carousel
           id="carousel"
@@ -13,6 +14,7 @@
           @sliding-start="onSlideStart"
           @sliding-end="onSlideEnd"
         >
+            <!-- 核心内容 -->
             <template v-for="slide in sampleData">
                 <b-carousel-slide
                     :key="slide.id"
@@ -26,29 +28,6 @@
 </template>
 
 <script>
-const sampleData = 
-[
-    {
-        id: 1,
-        content: "First slide",
-        picture: "https://picsum.photos/1024/480/?image=52",
-    },
-    {
-        id: 2,
-        content: "Second slide",
-        picture: "https://picsum.photos/1024/480/?image=54",
-    },
-    {
-        id: 3,
-        content: "Third slide",
-        picture: "https://picsum.photos/1024/480/?image=58",
-    },
-    {
-        id: 4,
-        content: "Forth slide",
-        picture: "https://picsum.photos/1024/480/?image=55",
-    },
-];
 
 export default {
     data() {
@@ -58,6 +37,8 @@ export default {
             sampleData
         }
     },
+
+    // 从后台获取数据
     async asyncData({ $axios, params }) {
         try {
             let slideData = await $axios.$get(`/api/slides/`);
@@ -67,6 +48,7 @@ export default {
             return { slideData: [] };
         }
     },
+    // 点击变化
     methods: {
         onSlideStart(slide) {
             this.sliding = true

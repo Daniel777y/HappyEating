@@ -1,4 +1,5 @@
 <template>
+    <!-- 网站起始页 -->
     <header>
         <div class="text-box">
             <h1>欢乐食光 😋</h1>

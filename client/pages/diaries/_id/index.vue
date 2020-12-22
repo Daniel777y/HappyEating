@@ -1,4 +1,5 @@
 <template>
+    <!-- 某篇日记展示 -->
     <div>
         <navBar />
         <main class="container my-5">

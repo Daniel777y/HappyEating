@@ -1,4 +1,5 @@
 <template>
+    <!-- 食谱卡片 -->
     <div class="card recipe-card">
         <img :src="recipe.picture" class="card-img-top" />
         <div class="card-body">

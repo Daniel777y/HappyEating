@@ -4,6 +4,7 @@ from .models import Diary
 from .models import Food
 from .models import Slide
 
+# 食谱序列化器
 class RecipeSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -14,6 +15,7 @@ class RecipeSerializer(serializers.ModelSerializer):
         )
 
 
+# 日记序列化器
 class DiarySerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -23,6 +25,7 @@ class DiarySerializer(serializers.ModelSerializer):
         )
 
 
+# 食物序列化器
 class FoodSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -33,6 +36,7 @@ class FoodSerializer(serializers.ModelSerializer):
         )
 
 
+# 轮播序列化器
 class SlideSerializer(serializers.ModelSerializer):
 
     class Meta:

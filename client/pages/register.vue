@@ -1,4 +1,5 @@
 <template>
+    <!-- 注册页面 -->
     <div>
         <navBar />
         <main class="signup_form">

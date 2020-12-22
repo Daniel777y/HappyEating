@@ -1,4 +1,5 @@
 <template>
+    <!-- 添加日记页面 -->
     <div>
         <navBar />
         <main class="container">

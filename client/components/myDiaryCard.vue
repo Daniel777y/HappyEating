@@ -1,4 +1,5 @@
 <template>
+    <!-- 在 我的 界面中展示的日记卡片 -->
     <b-card class="my-diary-card w-100" :img-src="diary.picture" img-right>
         <div>
             <div class="post-preview">

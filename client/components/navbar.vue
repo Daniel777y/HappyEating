@@ -1,4 +1,5 @@
 <template>
+    <!-- 导航栏样式 -->
     <div class="navBar fixed-top">
         <b-navbar toggleable="lg" type="dark" variant="warning">
             <b-navbar-brand to='/'> 欢乐食光 </b-navbar-brand>

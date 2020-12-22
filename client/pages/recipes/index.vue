@@ -1,4 +1,5 @@
 <template>
+    <!-- 食谱总页 -->
     <div>
         <navBar />
         <main class="container" style="margin-top: 65px">

@@ -22,8 +22,11 @@ from account.views import LogoutView, MyTokenObtainPairView
 
 
 urlpatterns = [
+    # 管理模型
     path('admin/', admin.site.urls),
+    # 接口管理
     path('api/', include('core.urls')),
+    # 账号管理
     path('account/', include('account.urls')),
     path('api/token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),

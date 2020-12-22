@@ -1,4 +1,5 @@
 <template>
+    <!-- 测试页 -->
     <main class="login_form">
         <div id="app">
             <div id="login">

@@ -1,4 +1,5 @@
 <template>
+    <!-- 食品卡片模块 -->
     <div class="card food-card">
         <div class="card-img">
             <img :src="food.picture" class="bg-pic">
