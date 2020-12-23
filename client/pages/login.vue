@@ -28,7 +28,6 @@
  
 <script>
 import axios from 'axios'
-//import common from '~/components/common'
 import common from '~/store/common'
 import navBar from "~/components/navbar.vue";
 import myFooter from "~/components/myFooter.vue";
@@ -54,7 +53,7 @@ export default {
             if (this.loginForm.username === '' || this.loginForm.password === '') {
                 alert('账号或密码不能为空！');
             } else {
-                axios.post(`http://localhost:8000/api/token/`, _this.loginForm).then(res => {
+                axios.post(`/api/token/`, _this.loginForm).then(res => {
                     console.log(res);
 
                     // 存入缓存

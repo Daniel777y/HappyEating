@@ -1,4 +1,4 @@
-from rest_framework import  serializers
+from rest_framework import serializers
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken, TokenError
 from django.db import models

@@ -19,4 +19,8 @@ export default {
         this.username = '';
     },
 
+    getState() {
+        return this.state;
+    }
+
 }

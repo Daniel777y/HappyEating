@@ -27,7 +27,6 @@
 
 <script>
 import axios from 'axios'
-import common from '~/components/common'
 
 export default {
     name: 'navBar',

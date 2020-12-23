@@ -10,6 +10,7 @@
 * 版本管理：`Git` 。
 * 后端：`Django` 、`MySQL`、`DRF+JWT`实现登录
 * 前端：`Nuxt.js`、`Bootstrap-Vue` 。
+* 跨域请求：`axios`、`proxy` 
 
 #### 需手动安装的库
 
@@ -17,6 +18,7 @@
 * `axios` 
 * `bootstrapvue` 
 * `mavon-editor` 
+* `proxy`
 
 #### 参考资料
 
@@ -31,5 +33,5 @@
 * [Django + Nuxt 实现美食分享网站（二）](https://tuture.co/2019/10/18/425a3a9/) 
 * [刘江的Django实例参考](https://www.liujiangblog.com/course/django/) 
 * [JWT实现注册和登录](https://medium.com/python-in-plain-english/django-rest-framework-jwt-auth-with-login-and-register-77f830cd8789) 
-* [JWT实现登出](https://www.youtube.com/watch?v=6_CL9tyh78w&t=164s)
+* [JWT实现登出](https://www.youtube.com/watch?v=6_CL9tyh78w&t=164s) 
 

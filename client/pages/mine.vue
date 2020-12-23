@@ -80,7 +80,7 @@ export default {
         console.log(this.username);
 
         try {
-            axios.get(`http://localhost:8000/api/recipes/`, {
+            axios.get(`/api/recipes/`, {
                 params: {
                     username: this.username
                 }
@@ -89,7 +89,7 @@ export default {
                     this.myrecipes = res.data;
                 }
             );
-            axios.get(`http://localhost:8000/api/diaries/`, {
+            axios.get(`/api/diaries/`, {
                 params: {
                     username: this.username
                 }

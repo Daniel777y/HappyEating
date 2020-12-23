@@ -66,7 +66,7 @@ export default {
             } else if (this.registerForm.password !== this.registerForm.password2) {
                 alert('两次密码输入不一致！');
             } else {
-                axios.post(`http://localhost:8000/account/api/register`, _this.registerForm).then(res => {
+                axios.post(`/account/registers/`, _this.registerForm).then(res => {
                     alert('注册成功！');
                     this.$router.push('/login');
                 })

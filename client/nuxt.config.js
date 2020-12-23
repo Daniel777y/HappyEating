@@ -34,10 +34,17 @@ export default {
         // https://go.nuxtjs.dev/bootstrap
         'bootstrap-vue/nuxt',
         '@nuxtjs/axios',
+        '@nuxtjs/proxy',
     ],
 
     axios: {
-        baseURL: 'http://localhost:8000',
+        proxy: true,
+        baseURL: 'http://192.168.123.155:8000',
+    },
+
+    proxy: {
+        '/api': 'http://192.168.123.155:8000',
+        '/account': 'http://192.168.123.155:8000'
     },
 
     // Build Configuration (https://go.nuxtjs.dev/config-build)
